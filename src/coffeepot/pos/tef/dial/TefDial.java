@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.joda.time.DateTime;
+import test.java.coffeepot.pos.tef.FuncoesNativas;
 
 /**
  *
