@@ -34,7 +34,6 @@ public class CancelamentoVenda {
         cnc.setTotalValue(responseMessage.getTotalValue());
         cnc.setNsu(responseMessage.getNsu());
         cnc.setNetwork(responseMessage.getNetwork());
-        cnc.setCheckDate(responseMessage.getCheckDate());
         cnc.setTransactionTimestamp(responseMessage.getTransactionTimestamp());
         cnc.setDoc(responseMessage.getDoc());
         cnc.setTaxDocumentNumberLinked(responseMessage.getFiscalDocumentNumberLinked());

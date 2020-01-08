@@ -29,6 +29,7 @@ public class IniciandoVenda {
             BigDecimal bigDecimal = new BigDecimal(scanner.nextLine());
             iniciarTransacaoTef.setValorDaVenda(bigDecimal);
             ResponseMessage resposta = iniciarTransacaoTef.inicarTransacaoTef();
+            System.out.println("resposta = " + resposta.getStoreCode());
             System.out.println("Deseja cancelar a venda");
             String cancelarAVenda = scanner.nextLine();
             if ("sim".equals(cancelarAVenda)) {

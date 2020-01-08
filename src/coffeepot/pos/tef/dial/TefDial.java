@@ -66,13 +66,13 @@ public class TefDial {
 
     private void checkIfIsActive() throws IOException {
         if (!isActive()) {
-            throw new IllegalStateException("TEF não responde");
+            throw new RuntimeException("TEF não responde");
         }
     }
 
     private void checkIfWaitingResponse() {
         if (waitingResponse) {
-            throw new IllegalStateException("Requisição anterior não concluida");
+            throw new RuntimeException("Requisição anterior não concluida");
         }
     }
 

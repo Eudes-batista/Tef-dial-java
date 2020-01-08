@@ -21,6 +21,7 @@ import javax.print.PrintServiceLookup;
 import javax.print.SimpleDoc;
 import javax.print.attribute.HashDocAttributeSet;
 import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.swing.JOptionPane;
 
 public class IniciarTransacaoTef {
     
@@ -61,18 +62,16 @@ public class IniciarTransacaoTef {
                 String voucherOfStore = resp.getVoucherOfStore();
                 System.out.println("voucherOfStore = " + voucherOfStore);
                 System.out.println("Iniciando impressão da via do cliente");
-                imprimirComprovanteCartao(voucherOfCustomer);
-                imprimirComprovanteCartao(String.valueOf(new char[]{29,86,0}));
+                imprimirComprovanteCartao(voucherOfCustomer+String.valueOf(new char[]{29,86,0}));
                 System.out.println("Iniciando impressão da via da loja");
-                imprimirComprovanteCartao(voucherOfStore);
-                imprimirComprovanteCartao(String.valueOf(new char[]{29,86,0}));
+                imprimirComprovanteCartao(voucherOfStore+String.valueOf(new char[]{29,86,0}));
             } else {
                 String mensagemUsuario = resp.getOperatorMessage();
                 System.out.println(mensagemUsuario);
             }
             return resp;
         } catch (IOException | NotRespondingException ex) {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return null;
     }
@@ -101,7 +100,4 @@ public class IniciarTransacaoTef {
     public void setVenda(int venda) {
         this.venda = venda;
     }
-    
-    
-
 }

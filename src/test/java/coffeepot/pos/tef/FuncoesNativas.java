@@ -16,7 +16,7 @@ import com.sun.jna.platform.win32.WinDef.HWND;
  * @author servidor
  */
 public class FuncoesNativas {
-    
+
     public static void bloquear(Boolean trava) {
         if (Platform.isWindows()) {
             NativeLibrary lib = NativeLibrary.getInstance("user32");
@@ -28,11 +28,13 @@ public class FuncoesNativas {
             }
         }
     }
-    
-     public static void focar(String titulo) {
+
+    public static void focar(String titulo) {
         if (Platform.isWindows()) {
             User32 user32 = User32.INSTANCE;
             HWND win = user32.FindWindow(null, titulo);
+            user32.ShowWindow(win, User32.SW_SHOW);
+            user32.SetForegroundWindow(win);
             user32.SetFocus(win);
         }
     }
