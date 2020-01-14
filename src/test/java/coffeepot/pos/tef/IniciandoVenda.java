@@ -5,6 +5,7 @@ import coffeepot.pos.tef.misc.NotRespondingException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class IniciandoVenda {
 
@@ -33,8 +34,13 @@ public class IniciandoVenda {
             System.out.println("Deseja cancelar a venda");
             String cancelarAVenda = scanner.nextLine();
             if ("sim".equals(cancelarAVenda)) {
-                CancelamentoVenda cancelamentoVenda = new CancelamentoVenda();
-                cancelamentoVenda.cancelamento(resposta);                
+                //CancelamentoVenda cancelamentoVenda = new CancelamentoVenda();
+                //cancelamentoVenda.cancelamento(resposta);
+                try {
+                    InciandoCancelamentoUltimaVenda.testNCN(resposta);
+                } catch (Exception ex) {
+                   JOptionPane.showMessageDialog(null, ex);
+                }
             }
         }
     }

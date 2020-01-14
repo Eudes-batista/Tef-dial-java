@@ -937,6 +937,9 @@ public class ResponseMessage implements java.io.Serializable {
                 break;
             case "026":
                 try {
+                    if ("0000000000".equals(value)) {
+                        return;
+                    }
                     canceledHostTimestamp = DateTime.parse(value, DateTimeFormat.forPattern("ddMMHHmmss"));
                 } catch (Exception ex) {
                     Logger.getLogger(ResponseMessage.class.getName()).log(Level.SEVERE, null, ex);
@@ -1043,5 +1046,5 @@ public class ResponseMessage implements java.io.Serializable {
     @Override
     public String toString() {
         return "ResponseMessage{" + "operation=" + operation + ", identifier=" + identifier + ", taxDocumentNumberLinked=" + taxDocumentNumberLinked + ", totalValue=" + totalValue + ", currency=" + currency + ", cmc7=" + cmc7 + ", doc=" + doc + ", checkDate=" + checkDate + ", transactionOk=" + transactionOk + ", errorCode=" + errorCode + ", network=" + network + ", transactionType=" + transactionType + ", nsu=" + nsu + ", authorizationCode=" + authorizationCode + ", batchNumber=" + batchNumber + ", hostTimestamp=" + hostTimestamp + ", localTimestamp=" + localTimestamp + ", parcelingType=" + parcelingType + ", parcelsCount=" + parcelsCount + ", parcels=" + parcels + ", transactionTimestamp=" + transactionTimestamp + ", preDated=" + preDated + ", canceledNsu=" + canceledNsu + ", canceledHostTimestamp=" + canceledHostTimestamp + ", controlCode=" + controlCode + ", voucherLinesCount=" + voucherLinesCount + ", voucherImage=" + voucherImage + ", operatorMessage=" + operatorMessage + ", customerMessage=" + customerMessage + ", authentication=" + authentication + ", bankCode=" + bankCode + ", bankingAgency=" + bankingAgency + ", bankingAgencyDC=" + bankingAgencyDC + ", checkingAccount=" + checkingAccount + ", checkingAccountDC=" + checkingAccountDC + ", checkNumber=" + checkNumber + ", checkNumberDC=" + checkNumberDC + ", administratorName=" + administratorName + ", originalValue=" + originalValue + ", changeValue=" + changeValue + ", discountValue=" + discountValue + ", couponReduced=" + couponReduced + ", voucherOfCustomer=" + voucherOfCustomer + ", voucherOfStore=" + voucherOfStore + ", terminalNumber=" + terminalNumber + ", storeCode=" + storeCode + ", originalFile=" + originalFile + ", sequence=" + sequence + ", cnfSent=" + cnfSent + '}';
-    }   
+    }
 }

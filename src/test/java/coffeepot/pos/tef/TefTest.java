@@ -150,11 +150,11 @@ public class TefTest {
             ncn.setNetwork(resp.getNetwork());
             ncn.setNsu(resp.getNsu());
             ncn.setTaxDocumentNumberLinked(resp.getFiscalDocumentNumberLinked());
-            StatusResponse sts = instance.ncn(ncn);
-            System.out.println("ncn:\n\n");
-            System.out.println(sts.getOperation());
-            System.out.println(sts.getIdentifier());
-            System.out.println(sts.getFields());
+//            StatusResponse sts = instance.ncn(ncn);
+//            System.out.println("ncn:\n\n");
+//            System.out.println(sts.getOperation());
+//            System.out.println(sts.getIdentifier());
+//            System.out.println(sts.getFields());
         }
         System.out.println("conteúdo do arquivo:\n" + resp.getOriginalFile());
     }
