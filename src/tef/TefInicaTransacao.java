@@ -11,20 +11,20 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Currency;
 
-public class TefInicaTranssacao {
+public class TefInicaTransacao {
 
     private int identificacao;
     private int venda;
     private BigDecimal valorDaVenda;
 
-    private static TefInicaTranssacao tefInicaTranssacao = null;
+    private static TefInicaTransacao tefInicaTranssacao = null;
 
-    private TefInicaTranssacao() {
+    private TefInicaTransacao() {
     }
 
-    public static TefInicaTranssacao getTefInicaTranssacao() {
+    public static TefInicaTransacao getTefInicaTranssacao() {
         if (tefInicaTranssacao == null) {
-            tefInicaTranssacao = new TefInicaTranssacao();
+            tefInicaTranssacao = new TefInicaTransacao();
         }
         return tefInicaTranssacao;
     }

@@ -9,8 +9,17 @@ import tef.dial.response.StatusResponse;
 import java.io.IOException;
 
 public class TefAdministrador {
+    
+    private static TefAdministrador tefAdministrador;
 
-    public static void iniciarTefAdministrador() throws Exception {
+    private TefAdministrador() {
+    }
+
+    public static TefAdministrador getTefAdministrador() {
+        return tefAdministrador;
+    }
+
+    public ResponseMessage iniciarTefAdministrador() throws Exception {
         TefDial instance = TefInital.getTefDial(ArquivoConfiguracao.getPastas().getCaminhoRequisicao(),ArquivoConfiguracao.getPastas().getCaminhoResposta());
         ResponseMessage adm = instance.adm();
         if (adm.isTransactionOk()) {
@@ -21,13 +30,17 @@ public class TefAdministrador {
             cnf.setNsu(adm.getNsu());
             cnf.setFiscalDocumentNumberLinked(adm.getFiscalDocumentNumberLinked());
             StatusResponse sts = instance.cnf(cnf);
-            realizarImpressao(adm);
         }
+        return  adm;
     }
 
-    private static void realizarImpressao(ResponseMessage response) throws IOException {
+    public void realizarImpressao(ResponseMessage response) throws IOException {
         String comprovante = response.getVoucherImage();
         ControleImpressao controleImpressao = ControleImpressao.getControleImpressao();
+        controleImpressao.setImpressora("nomeDaSuaImpressora");
+        controleImpressao.setIsGaveta(false);
+        controleImpressao.setModeloDaImpressora("modeloDaSuaImpressoa");
+        controleImpressao.setQuantidadeDeVias(1);
         if (comprovante != null && !comprovante.isEmpty()) {
             controleImpressao.imprimirComprovanteTefAdministrador(comprovante);
             return;

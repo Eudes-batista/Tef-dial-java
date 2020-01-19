@@ -133,4 +133,38 @@ public class ControleImpressao {
         return comprovante + "\n\n\n\n\n" + this.cortarPapel();
     }
 
+    public String getImpressora() {
+        return impressora;
+    }
+
+    public void setImpressora(String impressora) {
+        this.impressora = impressora;
+    }
+
+    public String getModeloDaImpressora() {
+        return modeloDaImpressora;
+    }
+
+    public void setModeloDaImpressora(String modeloDaImpressora) {
+        this.modeloDaImpressora = modeloDaImpressora;
+    }
+
+    public int getQuantidadeDeVias() {
+        return quantidadeDeVias;
+    }
+
+    public void setQuantidadeDeVias(int quantidadeDeVias) {
+        this.quantidadeDeVias = quantidadeDeVias;
+    }
+
+    public boolean isIsGaveta() {
+        return isGaveta;
+    }
+
+    public void setIsGaveta(boolean isGaveta) {
+        this.isGaveta = isGaveta;
+    }
+
+    
+    
 }
